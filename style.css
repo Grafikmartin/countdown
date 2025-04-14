@@ -26,7 +26,7 @@ body {
   background: rgba(0, 0, 0, 0.8);
   padding: 1vw;
   border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.8);
   margin-top: 40vh;
   z-index: 1000;
 }
@@ -37,21 +37,55 @@ h1 {
 
 .input-group {
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
-.input-group label {
-  display: inline-block;
-  width: 60px;
+.time-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.input-control {
+  display: flex;
+  align-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  margin-top: 5px;
 }
 
 .input-group input {
-  width: 80px;
-  padding: 5px;
-  margin: 0 10px;
-  font-size: 18px;
+  width: 90px;
+  padding: 8px;
+  margin: 0 5px;
+  font-size: 24px;
   text-align: center;
   border-radius: 10px;
   border: none;
+}
+
+.arrow-controls {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px; /* Negativer Wert zieht die Elemente zusammen */
+  line-height: 0.5;
+}
+
+.material-icons {
+  cursor: pointer;
+  color: white;
+  font-size: 48px !important;
+  transition: transform 0.2s, color 0.2s;
+  margin: -10px 0; /* Negativer vertikaler Abstand */
+  padding: 0;
+}
+
+.material-icons:hover {
+  transform: scale(1.2);
+  color: #b3ff00;
 }
 
 button {
@@ -74,7 +108,7 @@ button:hover {
 }
 
 .countdown {
-  font-size: 86px;
+  font-size: 100px; /* Increased from 86px */
   margin-top: 20px;
 }
 
@@ -87,6 +121,7 @@ button:hover {
   display: none;
   text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.9);
 }
+
 .control-buttons {
   margin-top: 20px;
   display: none;
@@ -105,6 +140,7 @@ button:hover {
   transform: scale(1.1);
   color: #ffd700;
 }
+
 .speed-control {
   display: none;
   margin-top: 20px;
@@ -120,13 +156,13 @@ button:hover {
   width: 200px;
   margin-left: 10px;
 }
-footer {
-    position: fixed;
-    bottom: 10px; /* Abstand zum unteren Rand */
-    width: 100%;
-    text-align: center;
-    font-size: 2vh; /* Kleine Schriftgröße */
-    color: rgb(0, 0, 0); /* Weiße Schriftfarbe */
 
-    font-family: Arial, sans-serif; /* Angenehme, klare Schriftart */
-  }
+footer {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 2vh;
+  color: rgb(0, 0, 0);
+  font-family: Arial, sans-serif;
+}

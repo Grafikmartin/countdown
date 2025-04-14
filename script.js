@@ -131,3 +131,55 @@ function adjustSpeed(value) {
   speedX = speedFactor;
   speedY = speedFactor;
 }
+// Add these functions for increment/decrement controls
+
+function incrementInput(inputId) {
+  const input = document.getElementById(inputId);
+  const currentValue = parseInt(input.value) || 0;
+  const max = parseInt(input.getAttribute('max'));
+  
+  if (currentValue < max) {
+    input.value = currentValue + 1;
+  } else {
+    input.value = 0; // Loop back to 0
+  }
+}
+
+function decrementInput(inputId) {
+  const input = document.getElementById(inputId);
+  const currentValue = parseInt(input.value) || 0;
+  const max = parseInt(input.getAttribute('max'));
+  
+  if (currentValue > 0) {
+    input.value = currentValue - 1;
+  } else {
+    input.value = max; // Loop to max value
+  }
+}
+
+
+
+function startCountdown() {
+  // Tage entfernt, nur Stunden und Minuten verwenden
+  const hours = parseInt(document.getElementById("hours").value) || 0;
+  const minutes = parseInt(document.getElementById("minutes").value) || 0;
+
+  // Berechne die Gesamtzeit in Millisekunden ohne Tage
+  timeLeft = (hours * 60 * 60 + minutes * 60) * 1000;
+
+  if (countdownInterval) {
+    clearInterval(countdownInterval);
+  }
+
+  pauseText.textContent = "BREAK"; // Zeigt "BREAK", wenn der Countdown läuft
+  pauseText.style.display = "block";
+  controlButtons.style.display = "flex"; // Kontroll-Buttons sichtbar machen
+  speedControl.style.display = "block"; // Schieberegler sichtbar machen
+
+  isMoving = true; // Bewegung erlauben
+  if (!isPaused) { // Nur starten, wenn nicht bereits pausiert
+    moveText();
+  }
+
+  resumeCountdown();
+}
